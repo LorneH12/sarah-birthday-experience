@@ -44,3 +44,7 @@ Use the installed Sarah Photo Sync skill for new imports. It checks SHA-256 and 
 
 Set `focus: {x:0.5,y:0.4,confirmed:true}` in a media record only for a family-confirmed Sarah location. Coordinates are fractions of the full photo. Without a confirmed focus, Sarah reveal falls back to gentle zoom. Visitors can adjust focus on their own devices; these changes do not automatically alter the shared record. Motion stops with reduced-motion preferences or Still photos.
 
+
+## Birthday positioning — September 27, 2026
+
+The site is first a 90th birthday party weekend invitation: a celebration **with Sarah**. Lead with present-tense warmth, invitations, the October 2–4 Tucson events, Saturday’s party, birthday wishes, and making new memories together. Her birthday is October 5. Keep family history and photographs as supporting experiences. Avoid memorial-like headlines, date-span branding, “keep the story alive,” and retrospective tribute framing. Do not add explicit memorial disclaimers or invented first-person quotes from Sarah.
