@@ -48,3 +48,9 @@ Set `focus: {x:0.5,y:0.4,confirmed:true}` in a media record only for a family-co
 ## Birthday positioning — September 27, 2026
 
 The site is first a 90th birthday party weekend invitation: a celebration **with Sarah**. Lead with present-tense warmth, invitations, the October 2–4 Tucson events, Saturday’s party, birthday wishes, and making new memories together. Her birthday is October 5. Keep family history and photographs as supporting experiences. Avoid memorial-like headlines, date-span branding, “keep the story alive,” and retrospective tribute framing. Do not add explicit memorial disclaimers or invented first-person quotes from Sarah.
+
+## Comparison edition
+
+This repository is the separate `sarah-birthday-experience` site. Do not publish it over `sarah-eldridge-legacy`. Photo-sync automation still targets the original only. Use `data/experience.js` for the homepage days, timeline capsules, and biography. `js/experience.js` supplies the new homepage and reading pages; `js/chamber.js` supplies the perspective gallery. New styles are isolated in matching CSS files.
+
+The gallery starts paused. Historical records are labeled separately from family photographs. Unknown capture dates remain in the undated collection. Per-image comments use the existing reviewed email pathway and preserve the photo identifier. There is no persistent public comment backend.
