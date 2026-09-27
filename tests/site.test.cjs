@@ -8,7 +8,7 @@ const sandbox = {TextEncoder, URLSearchParams, console};
 sandbox.window = sandbox;
 vm.createContext(sandbox);
 for (const name of fs.readdirSync(path.join(root,'data'))) vm.runInContext(fs.readFileSync(path.join(root,'data',name),'utf8'), sandbox);
-for (const name of ['utils','ui','events','slideshow','services/contributions','pages']) vm.runInContext(fs.readFileSync(path.join(root,'js',name+'.js'),'utf8'),sandbox);
+for (const name of ['utils','ui','events','slideshow','services/contributions','pages','experience','chamber']) vm.runInContext(fs.readFileSync(path.join(root,'js',name+'.js'),'utf8'),sandbox);
 const data=sandbox.SARAH_CONTENT, S=sandbox.Sarah;
 test('every photo and historical image resolves to a real local asset',()=>{
  assert.ok(data.media.length>=47);
@@ -59,4 +59,25 @@ test('all page types render; shell loads existing local dependencies',()=>{
  for(const html of renders){assert.ok(html.length>100);assert.ok(!html.includes('undefined'));assert.ok(!html.includes('style='));}
  const shell=fs.readFileSync(path.join(root,'index.html'),'utf8');
  for(const m of shell.matchAll(/(?:src|href)="((?:js|css|assets)\/[^"#]+)"/g))assert.ok(fs.existsSync(path.join(root,m[1])),m[1]);
+});
+
+test('new experience routes render without guessing photograph decades',()=>{
+ const before=JSON.stringify(data.media);
+ for(const mode of ['all','shuffle']){
+  const list=S.chamber.collection(mode);assert.equal(list.length,47);assert.equal(new Set(list.map(x=>x.id)).size,47);
+ }
+ assert.equal(JSON.stringify(data.media),before);
+ assert.equal(S.chamber.collection('2010s').length,2);
+ assert.ok(S.chamber.collection('1930s').every(m=>m.type==='history'));
+ assert.equal(S.chamber.collection('1970s').length,0);
+ assert.equal(S.chamber.collection('invalid'),null);
+ const home=S.pages.home();
+ assert.ok(home.indexOf('id="weekend"')<home.indexOf('id="meet-sarah"'));
+ assert.ok(home.indexOf('id="meet-sarah"')<home.indexOf('id="love-story"'));
+ assert.ok(home.indexOf('id="time-capsule"')<home.indexOf('id="photo-journeys"'));
+ for(const html of [home,S.experience.biography(),S.experience.day('saturday'),S.chamber.page('all'),S.chamber.page('1970s'),S.pages.love()]){assert.ok(!html.includes('undefined'));assert.ok(!html.includes('style='));}
+ assert.ok(S.experience.day('saturday').includes('Sarah’s 90th Birthday Party'));
+ const form=S.contributions.page(new URLSearchParams('photo=img_1222'));
+ assert.ok(form.includes('img_1222'));assert.ok(form.includes('does not upload or send'));
+ assert.equal((form.match(/<option[ >]/g)||[]).length,(form.match(/<\/option>/g)||[]).length);
 });
