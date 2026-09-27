@@ -58,7 +58,7 @@ test('all page types render; shell loads existing local dependencies',()=>{
  for(const mode of ['party','shuffle','decades'])renders.push(S.slideshow.page(mode,'all'));
  for(const html of renders){assert.ok(html.length>100);assert.ok(!html.includes('undefined'));assert.ok(!html.includes('style='));}
  const shell=fs.readFileSync(path.join(root,'index.html'),'utf8');
- for(const m of shell.matchAll(/(?:src|href)="((?:js|css|assets)\/[^"#]+)"/g))assert.ok(fs.existsSync(path.join(root,m[1])),m[1]);
+ for(const m of shell.matchAll(/(?:src|href)="((?:js|css|assets)\/[^"#]+)"/g))assert.ok(fs.existsSync(path.join(root,m[1].split('?')[0])),m[1]);
 });
 
 test('new experience routes render without guessing photograph decades',()=>{
