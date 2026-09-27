@@ -2,7 +2,7 @@
 (() => {
   'use strict';
   const main=document.getElementById('main'),nav=document.getElementById('main-nav'),menu=document.querySelector('.menu-toggle'),dialog=document.getElementById('photo-dialog');
-  const titles={home:'Ninety Wonderful Years',journey:'The Journey','sarah-and-jonas':'Sarah & Jonas',family:'Our Family',slideshow:'Slideshow','sarah-at-90':'Sarah at 90',events:'Celebration Weekend',memories:'Family Memories',explore:'Explore the Archive',about:'About',privacy:'Privacy',credits:'Sources & Credits'};
+  const titles={home:'Sarah’s 90th Birthday Weekend',journey:'The Journey','sarah-and-jonas':'Sarah & Jonas',family:'Our Family',slideshow:'Slideshow','sarah-at-90':'Sarah at 90',events:'Birthday Weekend Events',memories:'Stories & Birthday Wishes',explore:'Explore the Archive',about:'About',privacy:'Privacy',credits:'Sources & Credits'};
   let cleanup=()=>{};let firstRender=true;
   const closeMenu=()=>{nav.classList.remove('open');menu.setAttribute('aria-expanded','false');};
   const render = () => {
