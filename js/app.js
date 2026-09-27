@@ -2,7 +2,7 @@
 (() => {
   'use strict';
   const main=document.getElementById('main'),nav=document.getElementById('main-nav'),menu=document.querySelector('.menu-toggle'),dialog=document.getElementById('photo-dialog');
-  const titles={home:'Sarah’s 90th Birthday Weekend',journey:'The Journey','sarah-and-jonas':'Sarah & Jonas',family:'Our Family',slideshow:'Slideshow','sarah-at-90':'Sarah at 90',events:'Birthday Weekend Events',memories:'Stories & Birthday Wishes',explore:'Explore the Archive',about:'About',privacy:'Privacy',credits:'Sources & Credits'};
+  const titles={home:'Celebrate with Sarah · 90th Birthday',bio:'Meet Sarah',day:'Birthday Weekend',chamber:'Photo Journey',journey:'The Journey','sarah-and-jonas':'Sarah & Jonas',family:'Our Family',slideshow:'Slideshow','sarah-at-90':'Sarah at 90',events:'Birthday Weekend Events',memories:'Stories & Birthday Wishes',explore:'Explore the Archive',about:'About',privacy:'Privacy',credits:'Sources & Credits'};
   let cleanup=()=>{};let firstRender=true;
   const closeMenu=()=>{nav.classList.remove('open');menu.setAttribute('aria-expanded','false');};
   const render = () => {
@@ -12,6 +12,9 @@
     let html;
     switch(section){
       case'home':html=Sarah.pages.home();break;
+      case'bio':html=Sarah.experience.biography();break;
+      case'day':html=Sarah.experience.day(id);break;
+      case'chamber':html=Sarah.chamber.page(id||'all');break;
       case'journey':html=Sarah.pages.journey(id);break;
       case'sarah-and-jonas':html=Sarah.pages.love(id);break;
       case'family':html=Sarah.pages.family(id);break;
@@ -32,6 +35,8 @@
     if(section==='events')Sarah.events.bind(main);
     if(section==='explore')Sarah.pages.bindExplore();
     if(section==='memories'&&id==='share')cleanup=Sarah.contributions.bind();
+    if(section==='chamber')cleanup=Sarah.chamber.mount(id||'all');
+    const pageCleanup=cleanup,experienceCleanup=Sarah.experience.mount(section,params);cleanup=()=>{pageCleanup();experienceCleanup();};
   };
   menu.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',String(open));});
   document.addEventListener('keydown',event=>{if(event.key==='Escape')closeMenu();});
