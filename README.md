@@ -1,6 +1,6 @@
-# Mother Sarah Eldridge — Ninety Wonderful Years
+# Mother Sarah Eldridge — 90th Birthday Weekend
 
-A standalone family legacy and birthday celebration website. This repository is separate from all other sites in the account.
+A birthday party weekend website inviting family and friends to celebrate Mother Sarah Eldridge’s 90th birthday with her in Tucson, October 2–4, 2026. Family history, photographs, and stories support the celebration. This repository is separate from all other sites in the account.
 
 ## Run and verify
 
