@@ -1,6 +1,16 @@
-# Mother Sarah Eldridge — 90th Birthday Weekend
+# Celebrate with Sarah — comparison edition
 
-A birthday party weekend website inviting family and friends to celebrate Mother Sarah Eldridge’s 90th birthday with her in Tucson, October 2–4, 2026. Family history, photographs, and stories support the celebration. This repository is separate from all other sites in the account.
+Separate repository and GitHub Pages site: `sarah-birthday-experience`. The original `sarah-eldridge-legacy` stays unchanged.
+
+## New experience
+
+Full-screen birthday hero; three daily event posters; biography teaser and full reading page; romance poster and short attributed story edition; accessible decade time capsule; perspective photo corridor with shuffle, pause, manual navigation, fullscreen, reduced motion, and image-specific context contributions.
+
+New modules: `data/experience.js`, `js/experience.js`, `js/chamber.js`, `css/experience.css`, `css/chamber.css`. Existing shared modules provide event calendars, gallery dialogs, contribution previews, history, and family pages. No bundler or external runtime libraries.
+
+## Known limits
+
+Comments and photos go through email for family review. There is no public comment database or direct upload server. Photo dates are not inferred; most photos remain undated. Historical material is labeled. The love story is a short interpretive site edition, not the full previously drafted manuscript.
 
 ## Run and verify
 

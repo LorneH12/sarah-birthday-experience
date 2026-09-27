@@ -1,1 +1,1 @@
-{"name":"sarah-eldridge-legacy","version":"1.0.0","private":true,"description":"Mother Sarah Eldridge family legacy site — no build step","scripts":{"test":"node --test tests/*.test.cjs","start":"python3 -m http.server 8080"}}
+{"name":"sarah-birthday-experience","version":"1.0.0","private":true,"description":"Mother Sarah Eldridge birthday comparison experience — no build step","scripts":{"test":"node --test tests/*.test.cjs","start":"python3 -m http.server 8080"}}
