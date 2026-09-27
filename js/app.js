@@ -28,7 +28,7 @@
     }
     main.innerHTML=`<div class="page-enter">${html}</div>`;
     document.title=(titles[section]||'Page not found')+' · Mother Sarah Eldridge';
-    nav.querySelectorAll('a').forEach(a=>{if(a.hash==='#/'+section)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');});
+    nav.querySelectorAll('a').forEach(a=>{const current=location.hash||'#/home';const match=a.hash===current||(a.hash==='#/home'&&current==='#/home')||(a.hash==='#/home?section=weekend'&&['day','events'].includes(section))||(a.hash==='#/home?section=photo-journeys'&&['chamber','slideshow','explore'].includes(section))||(a.hash==='#/sarah-and-jonas'&&section==='sarah-and-jonas');if(match)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');});
     closeMenu();window.scrollTo({top:0,behavior:'instant'});
     if(!firstRender)main.focus({preventScroll:true});firstRender=false;
     if(section==='slideshow'&&id)cleanup=Sarah.slideshow.mount(id,sub||'all');
